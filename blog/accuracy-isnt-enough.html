@@ -5,25 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Why Accuracy Isn't Enough: The Case for Trustworthy Medical AI — Nasim Mahmud Nayan</title>
 <meta name="description" content="A model can be 99% accurate and still fail the patients who need it most. How fairness, transparency, and reliability change what we build." />
+<link rel="icon" type="image/png" href="../photos/logo.png" />
+<link rel="apple-touch-icon" href="../photos/logo.png" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Nasim Mahmud Nayan" />
+<meta property="og:title" content="Why Accuracy Isn't Enough: The Case for Trustworthy Medical AI" />
+<meta property="og:description" content="A model can be 99% accurate and still fail the patients who need it most. How fairness, transparency, and reliability change what we build." />
+<meta property="og:url" content="https://nasimnayan.github.io/blog/accuracy-isnt-enough.html" />
+<meta property="og:image" content="https://nasimnayan.github.io/photos/dp.png" />
+<meta property="og:locale" content="en_GB" />
+<meta property="article:author" content="Nasim Mahmud Nayan" />
+<meta property="article:published_time" content="2026-05-01" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Why Accuracy Isn't Enough: The Case for Trustworthy Medical AI" />
+<meta name="twitter:description" content="A model can be 99% accurate and still fail the patients who need it most. How fairness, transparency, and reliability change what we build." />
+<meta name="twitter:image" content="https://nasimnayan.github.io/photos/dp.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/styles.css?v=4" />
-<link rel="stylesheet" href="blog.css" />
+<link rel="stylesheet" href="../assets/styles.css?v=5" />
+<link rel="stylesheet" href="blog.css?v=2" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nasimnayan.github.io/blog/accuracy-isnt-enough.html#post",
+      "url": "https://nasimnayan.github.io/blog/accuracy-isnt-enough.html",
+      "headline": "Why Accuracy Isn't Enough: The Case for Trustworthy Medical AI",
+      "description": "A model can be 99% accurate and still fail the patients who need it most. How fairness, transparency, and reliability change what we build.",
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01",
+      "inLanguage": "en-GB",
+      "image": "https://nasimnayan.github.io/photos/dp.png",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nasimnayan.github.io/blog/accuracy-isnt-enough.html" },
+      "author": { "@id": "https://nasimnayan.github.io/#person" },
+      "publisher": { "@id": "https://nasimnayan.github.io/#person" },
+      "isPartOf": { "@id": "https://nasimnayan.github.io/#website" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nasimnayan.github.io/#person",
+      "name": "Nasim Mahmud Nayan",
+      "alternateName": ["Nasim Nayan", "N. M. Nayan"],
+      "url": "https://nasimnayan.github.io/",
+      "jobTitle": "Deputy Manager, AI & Machine Learning",
+      "worksFor": { "@type": "Organization", "name": "BRAC", "url": "https://www.brac.net", "department": { "@type": "Organization", "name": "Central Data Team" } },
+      "sameAs": [
+        "https://orcid.org/0009-0003-4157-3518",
+        "https://scholar.google.com/citations?user=zAuBXLUAAAAJ&hl=en",
+        "https://www.linkedin.com/in/nasim-mahmud-nayan-8475211b9/",
+        "https://github.com/NMNayan57",
+        "https://ogropath.com"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nasimnayan.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Writing", "item": "https://nasimnayan.github.io/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Why Accuracy Isn't Enough: The Case for Trustworthy Medical AI" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
+
 <nav class="nav scrolled" id="nav">
-  <a href="../index.html" class="brand"><span class="dot"></span>Nasim&nbsp;M.&nbsp;Nayan</a>
+  <a href="../index.html" class="brand"><img src="../photos/logo.png" alt="Nasim Mahmud Nayan" class="brand-logo" width="282" height="131"></a>
   <div class="links" id="navlinks">
     <a href="../index.html#about">About</a>
     <a href="../index.html#publications">Publications</a>
+    <a href="../index.html#industry">Industry</a>
     <a href="../index.html#research">Research</a>
     <a href="../index.html#projects">Projects</a>
-    <a href="../index.html#industry">Industry</a>
     <a href="../index.html#skills">Skills</a>
+    <a href="index.html">Writing</a>
     <a href="../index.html#contact">Contact</a>
+    <a href="../photos/NasimMahmudNayan_CV.pdf" target="_blank" rel="noopener" class="cv-btn">Download CV &#8595;</a>
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-controls="navlinks" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
+
+<main id="main" tabindex="-1">
 
 <div class="wrap">
   <div class="blog-header">
@@ -60,7 +128,7 @@
       <figcaption>Applying SMOTE oversampling to a diabetic patient dataset transforms a skewed distribution into one where the model can learn minority-class patterns effectively.</figcaption>
     </figure>
 
-    <p>But correcting class imbalance is only the beginning. Even on balanced datasets, medical AI models can encode and amplify societal biases present in historical clinical data — biases around race, gender, socioeconomic status, and geography. A model trained primarily on data from urban hospitals in high-income countries will not generalize equitably to rural patients in developing regions. I have seen this problem firsthand in maternal health research across Bangladesh.</p>
+    <p>But correcting class imbalance is only the beginning. Even on balanced datasets, medical AI models can encode and amplify societal biases present in historical clinical data — biases around race, gender, socioeconomic status, and geography. A model trained primarily on data from urban hospitals in high-income countries will not generalise equitably to rural patients in developing regions. I have seen this problem firsthand in maternal health research across Bangladesh.</p>
 
     <h2>Three Pillars of Trustworthy Medical AI</h2>
 
@@ -101,23 +169,49 @@
 
     <p>Accuracy, measured on a benchmark dataset that does not reflect those populations, is not enough. It was never enough. What we need — what the field demands — is a commitment to building AI systems that are accurate <em>and</em> fair, accurate <em>and</em> transparent, accurate <em>and</em> reliable across the full diversity of patients they will serve.</p>
 
-    <p>That is the case for trustworthy medical AI. And it is why the research agenda has to expand beyond optimizing a single metric on a leaderboard.</p>
+    <p>That is the case for trustworthy medical AI. And it is why the research agenda has to expand beyond optimising a single metric on a leaderboard.</p>
 
     <div class="article-end">
-      <img src="../photos/dp.jpeg" alt="Nasim Mahmud Nayan" class="author-photo">
+      <img src="../photos/dp.png" alt="Nasim Mahmud Nayan" class="author-photo">
       <div class="author-info">
         <div class="author-name">Nasim Mahmud Nayan</div>
-        <div class="author-role">AI Engineer · Healthcare AI Researcher · Deputy Manager, AI &amp; ML at BRAC</div>
+        <div class="author-role">Deputy Manager, AI &amp; ML at BRAC · Responsible AI &amp; AI Governance</div>
       </div>
     </div>
 
   </div>
+
+    <div class="blog-related">
+      <span class="mono">More writing</span>
+      <ul>
+      <li><a href="demographic-bias-m-trust.html"><span class="rdate">Mar 2026</span>Mitigating Demographic Bias in Clinical Models: Lessons from M-TRUST</a></li>
+      <li><a href="citation-first-clinical-rag.html"><span class="rdate">Jan 2026</span>Grounding LLMs in Evidence: Building Citation-First Clinical RAG</a></li>
+      <li><a href="from-rural-bangladesh-to-ai.html"><span class="rdate">Nov 2025</span>From Rural Bangladesh to Production AI: Democratising Healthcare</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-identity">
+      <span class="mono">About the author</span>
+      <p><b>Nasim Mahmud Nayan</b> is Deputy Manager, AI &amp; Machine Learning at BRAC's Central Data Team in Dhaka, Bangladesh. He works on AI governance, responsible AI deployment, and fairness evaluation for development programmes, and has published 12 peer-reviewed papers on fairness and explainability in machine learning.</p>
+      <div class="id-links">
+        <a class="primary" href="mailto:smnoyan670@gmail.com">Get in touch</a>
+        <a href="../index.html">Portfolio</a>
+        <a href="https://scholar.google.com/citations?user=zAuBXLUAAAAJ&amp;hl=en" target="_blank" rel="me noopener">Google Scholar</a>
+        <a href="https://orcid.org/0009-0003-4157-3518" target="_blank" rel="me noopener">ORCID</a>
+        <a href="https://www.linkedin.com/in/nasim-mahmud-nayan-8475211b9/" target="_blank" rel="me noopener">LinkedIn</a>
+        <a href="https://github.com/NMNayan57" target="_blank" rel="me noopener">GitHub</a>
+        <a href="https://ogropath.com" target="_blank" rel="me noopener">OgroPath</a>
+      </div>
+    </div>
 </div>
 
+</main>
+
 <footer class="footer">
-  <span>© 2026 Nasim Mahmud Nayan</span>
-  <span><span class="dot">●</span> Trustworthy · Healthcare · AI</span>
-  <a href="../index.html" style="color:var(--ink-3)">Back to portfolio →</a>
+  <span>&copy; 2026 Nasim Mahmud Nayan</span>
+  <span><span class="dot">&#9679;</span> Responsible AI &middot; Governance &middot; Research</span>
+  <a href="../index.html" style="color:var(--ink-3)">Back to portfolio &rarr;</a>
 </footer>
+<script src="../assets/script.js?v=5"></script>
 </body>
 </html>

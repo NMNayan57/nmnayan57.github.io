@@ -1,0 +1,28 @@
+name: Check local links
+
+# Catches broken local asset and page references before they ship.
+# The `../photos/dp.jpeg` bug that broke the author avatar on all four blog
+# pages would have failed this job.
+#
+# Deliberately plain bash/python using only preinstalled runner tools: this
+# site has no build step and no npm dependencies, and adding a link-checker
+# package would break that.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  local-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify every local src/href target exists
+        run: python3 .github/scripts/check_links.py
+
+      - name: Validate every JSON-LD block parses
+        run: python3 .github/scripts/check_jsonld.py

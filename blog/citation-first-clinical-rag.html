@@ -5,25 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Grounding LLMs in Evidence: Building Citation-First Clinical RAG — Nasim Mahmud Nayan</title>
 <meta name="description" content="A 'No Source, No Result' approach to retrieval — thematic clustering, NLI fact-checking, and source-level attribution for traceable clinical answers." />
+<link rel="icon" type="image/png" href="../photos/logo.png" />
+<link rel="apple-touch-icon" href="../photos/logo.png" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Nasim Mahmud Nayan" />
+<meta property="og:title" content="Grounding LLMs in Evidence: Building Citation-First Clinical RAG" />
+<meta property="og:description" content="A 'No Source, No Result' approach to retrieval — thematic clustering, NLI fact-checking, and source-level attribution for traceable clinical answers." />
+<meta property="og:url" content="https://nasimnayan.github.io/blog/citation-first-clinical-rag.html" />
+<meta property="og:image" content="https://nasimnayan.github.io/photos/dp.png" />
+<meta property="og:locale" content="en_GB" />
+<meta property="article:author" content="Nasim Mahmud Nayan" />
+<meta property="article:published_time" content="2026-01-01" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Grounding LLMs in Evidence: Building Citation-First Clinical RAG" />
+<meta name="twitter:description" content="A 'No Source, No Result' approach to retrieval — thematic clustering, NLI fact-checking, and source-level attribution for traceable clinical answers." />
+<meta name="twitter:image" content="https://nasimnayan.github.io/photos/dp.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/styles.css?v=4" />
-<link rel="stylesheet" href="blog.css" />
+<link rel="stylesheet" href="../assets/styles.css?v=5" />
+<link rel="stylesheet" href="blog.css?v=2" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://nasimnayan.github.io/blog/citation-first-clinical-rag.html#post",
+      "url": "https://nasimnayan.github.io/blog/citation-first-clinical-rag.html",
+      "headline": "Grounding LLMs in Evidence: Building Citation-First Clinical RAG",
+      "description": "A No Source, No Result approach to retrieval: thematic clustering, NLI fact-checking, and source-level attribution for traceable clinical answers.",
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-01-01",
+      "inLanguage": "en-GB",
+      "image": "https://nasimnayan.github.io/photos/dp.png",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nasimnayan.github.io/blog/citation-first-clinical-rag.html" },
+      "author": { "@id": "https://nasimnayan.github.io/#person" },
+      "publisher": { "@id": "https://nasimnayan.github.io/#person" },
+      "isPartOf": { "@id": "https://nasimnayan.github.io/#website" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nasimnayan.github.io/#person",
+      "name": "Nasim Mahmud Nayan",
+      "alternateName": ["Nasim Nayan", "N. M. Nayan"],
+      "url": "https://nasimnayan.github.io/",
+      "jobTitle": "Deputy Manager, AI & Machine Learning",
+      "worksFor": { "@type": "Organization", "name": "BRAC", "url": "https://www.brac.net", "department": { "@type": "Organization", "name": "Central Data Team" } },
+      "sameAs": [
+        "https://orcid.org/0009-0003-4157-3518",
+        "https://scholar.google.com/citations?user=zAuBXLUAAAAJ&hl=en",
+        "https://www.linkedin.com/in/nasim-mahmud-nayan-8475211b9/",
+        "https://github.com/NMNayan57",
+        "https://ogropath.com"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nasimnayan.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "Writing", "item": "https://nasimnayan.github.io/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Grounding LLMs in Evidence: Building Citation-First Clinical RAG" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
+
 <nav class="nav scrolled" id="nav">
-  <a href="../index.html" class="brand"><span class="dot"></span>Nasim&nbsp;M.&nbsp;Nayan</a>
+  <a href="../index.html" class="brand"><img src="../photos/logo.png" alt="Nasim Mahmud Nayan" class="brand-logo" width="282" height="131"></a>
   <div class="links" id="navlinks">
     <a href="../index.html#about">About</a>
     <a href="../index.html#publications">Publications</a>
+    <a href="../index.html#industry">Industry</a>
     <a href="../index.html#research">Research</a>
     <a href="../index.html#projects">Projects</a>
-    <a href="../index.html#industry">Industry</a>
     <a href="../index.html#skills">Skills</a>
+    <a href="index.html">Writing</a>
     <a href="../index.html#contact">Contact</a>
+    <a href="../photos/NasimMahmudNayan_CV.pdf" target="_blank" rel="noopener" class="cv-btn">Download CV &#8595;</a>
   </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-controls="navlinks" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
+
+<main id="main" tabindex="-1">
 
 <div class="wrap">
   <div class="blog-header">
@@ -42,13 +110,13 @@
 
     <p>Large language models are fluent, confident, and wrong in ways that are very hard to detect. In most domains, a plausible-sounding incorrect answer is a nuisance. In clinical settings, it can be dangerous. A doctor relying on AI-generated clinical decision support who cannot distinguish a hallucinated guideline from a real one is worse off than a doctor using no AI at all — at least without AI, uncertainty is explicit.</p>
 
-    <p>Retrieval-Augmented Generation (RAG) was supposed to solve this. Ground the model's responses in retrieved documents, and it cannot hallucinate facts that are not in those documents. In practice, standard RAG reduces hallucination significantly — but does not eliminate it. Models still synthesize across multiple documents in ways that introduce errors. They still occasionally ignore the retrieved evidence in favor of parametric memory. And they produce responses that sound equally confident whether the evidence is strong or weak.</p>
+    <p>Retrieval-Augmented Generation (RAG) was supposed to solve this. Ground the model's responses in retrieved documents, and it cannot hallucinate facts that are not in those documents. In practice, standard RAG reduces hallucination significantly — but does not eliminate it. Models still synthesise across multiple documents in ways that introduce errors. They still occasionally ignore the retrieved evidence in favour of parametric memory. And they produce responses that sound equally confident whether the evidence is strong or weak.</p>
 
     <p>Building ExplainRAG-FC-AS — a citation-grounded clinical decision support system — forced us to confront each of these failure modes directly.</p>
 
     <h2>The Core Problem: Plausible Without Being Trustworthy</h2>
 
-    <p>The fundamental tension in clinical RAG is between <em>fluency</em> and <em>traceability</em>. LLMs are optimized for the former. Clinical settings demand the latter. A response that cannot be traced to a specific source document, with a specific confidence level, provides no basis for a clinician to evaluate its reliability.</p>
+    <p>The fundamental tension in clinical RAG is between <em>fluency</em> and <em>traceability</em>. LLMs are optimised for the former. Clinical settings demand the latter. A response that cannot be traced to a specific source document, with a specific confidence level, provides no basis for a clinician to evaluate its reliability.</p>
 
     <p>We designed ExplainRAG-FC-AS around a single guiding principle that we call <strong>"No Source, No Result."</strong> Every claim in a system response must be attributable to a specific retrieved document. If the retrieval system cannot find relevant supporting evidence with sufficient confidence, the system declines to generate a response — and says so explicitly, explaining what it could not find.</p>
 
@@ -62,7 +130,7 @@
 
     <p>Standard vector-search RAG retrieves the top-k most semantically similar documents to a query. In a large clinical knowledge base, this can surface documents that are individually relevant but thematically inconsistent — covering different aspects of a topic, different patient populations, or even contradictory guidelines from different clinical bodies.</p>
 
-    <p>We addressed this with a pre-retrieval clustering step. Before query time, we cluster the knowledge base using <strong>K-Means on sentence embeddings</strong>, grouping documents by thematic coherence. At query time, retrieval is performed within the most relevant cluster — ensuring that the documents surfaced are not just individually relevant but mutually coherent. This significantly improves the quality of the context window passed to the LLM, reducing the risk of the model synthesizing across contradictory sources.</p>
+    <p>We addressed this with a pre-retrieval clustering step. Before query time, we cluster the knowledge base using <strong>K-Means on sentence embeddings</strong>, grouping documents by thematic coherence. At query time, retrieval is performed within the most relevant cluster — ensuring that the documents surfaced are not just individually relevant but mutually coherent. This significantly improves the quality of the context window passed to the LLM, reducing the risk of the model synthesising across contradictory sources.</p>
 
     <figure class="article-fig">
       <div class="fig-img">
@@ -110,25 +178,51 @@
 
     <h2>What Comes Next</h2>
 
-    <p>At Solyntra, where I applied these principles to SaaS knowledge systems, we extended the architecture with metadata-aware ingestion — tagging documents with freshness, source authority, and clinical jurisdiction — and multi-agent orchestration for complex queries that require synthesizing evidence across multiple domains. The core principle remained constant: every response must be traceable, or the system declines to respond.</p>
+    <p>At Solyntra, where I applied these principles to SaaS knowledge systems, we extended the architecture with metadata-aware ingestion — tagging documents with freshness, source authority, and clinical jurisdiction — and multi-agent orchestration for complex queries that require synthesising evidence across multiple domains. The core principle remained constant: every response must be traceable, or the system declines to respond.</p>
 
     <p>For clinical RAG to move from research prototype to deployable clinical tool, it needs robust audit trails, version control for knowledge bases, and integration with clinical workflow systems. The citation-first approach provides the foundation for all of these — because a system designed for traceability from the start is a system that can be audited, updated, and trusted.</p>
 
     <div class="article-end">
-      <img src="../photos/dp.jpeg" alt="Nasim Mahmud Nayan" class="author-photo">
+      <img src="../photos/dp.png" alt="Nasim Mahmud Nayan" class="author-photo">
       <div class="author-info">
         <div class="author-name">Nasim Mahmud Nayan</div>
-        <div class="author-role">AI Engineer · Healthcare AI Researcher · Deputy Manager, AI &amp; ML at BRAC</div>
+        <div class="author-role">Deputy Manager, AI &amp; ML at BRAC · Responsible AI &amp; AI Governance</div>
       </div>
     </div>
 
   </div>
+
+    <div class="blog-related">
+      <span class="mono">More writing</span>
+      <ul>
+      <li><a href="accuracy-isnt-enough.html"><span class="rdate">May 2026</span>Why Accuracy Isn't Enough: The Case for Trustworthy Medical AI</a></li>
+      <li><a href="demographic-bias-m-trust.html"><span class="rdate">Mar 2026</span>Mitigating Demographic Bias in Clinical Models: Lessons from M-TRUST</a></li>
+      <li><a href="from-rural-bangladesh-to-ai.html"><span class="rdate">Nov 2025</span>From Rural Bangladesh to Production AI: Democratising Healthcare</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-identity">
+      <span class="mono">About the author</span>
+      <p><b>Nasim Mahmud Nayan</b> is Deputy Manager, AI &amp; Machine Learning at BRAC's Central Data Team in Dhaka, Bangladesh. He works on AI governance, responsible AI deployment, and fairness evaluation for development programmes, and has published 12 peer-reviewed papers on fairness and explainability in machine learning.</p>
+      <div class="id-links">
+        <a class="primary" href="mailto:smnoyan670@gmail.com">Get in touch</a>
+        <a href="../index.html">Portfolio</a>
+        <a href="https://scholar.google.com/citations?user=zAuBXLUAAAAJ&amp;hl=en" target="_blank" rel="me noopener">Google Scholar</a>
+        <a href="https://orcid.org/0009-0003-4157-3518" target="_blank" rel="me noopener">ORCID</a>
+        <a href="https://www.linkedin.com/in/nasim-mahmud-nayan-8475211b9/" target="_blank" rel="me noopener">LinkedIn</a>
+        <a href="https://github.com/NMNayan57" target="_blank" rel="me noopener">GitHub</a>
+        <a href="https://ogropath.com" target="_blank" rel="me noopener">OgroPath</a>
+      </div>
+    </div>
 </div>
 
+</main>
+
 <footer class="footer">
-  <span>© 2026 Nasim Mahmud Nayan</span>
-  <span><span class="dot">●</span> Trustworthy · Healthcare · AI</span>
-  <a href="../index.html" style="color:var(--ink-3)">Back to portfolio →</a>
+  <span>&copy; 2026 Nasim Mahmud Nayan</span>
+  <span><span class="dot">&#9679;</span> Responsible AI &middot; Governance &middot; Research</span>
+  <a href="../index.html" style="color:var(--ink-3)">Back to portfolio &rarr;</a>
 </footer>
+<script src="../assets/script.js?v=5"></script>
 </body>
 </html>

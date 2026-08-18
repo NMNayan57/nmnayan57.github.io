@@ -11,7 +11,7 @@
   --card:       #faf6ee;   /* raised surfaces */
   --ink:        #211c15;   /* near-black warm */
   --ink-2:      #4a4337;   /* secondary text */
-  --ink-3:      #8c8474;   /* tertiary / mono labels */
+  --ink-3:      #6f6857;   /* tertiary / mono labels — AA: 4.75:1 on paper, 4.54:1 on paper-2, 5.14:1 on card */
   --line:       #d9cfbd;   /* hairlines */
   --line-2:     #e7ddcc;
 
@@ -33,7 +33,8 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* scroll-padding keeps anchored section headings clear of the fixed nav */
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
   margin: 0;
@@ -53,6 +54,24 @@ body {
 ::selection { background: var(--rust); color: #fff; }
 
 a { color: inherit; text-decoration: none; }
+
+/* ---------- focus ---------- */
+:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+/* solid surfaces read better with the ring inset slightly */
+.btn:focus-visible, .cv-btn:focus-visible, .filter-btn:focus-visible { outline-offset: 2px; }
+
+/* skip link — visually hidden until focused */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--ink); color: var(--paper);
+  padding: 0.8rem 1.1rem; border-radius: 0 0 3px 0;
+}
+.skip-link:focus { left: 0; }
 
 img { max-width: 100%; display: block; }
 
@@ -229,8 +248,6 @@ section { position: relative; }
   display: block;
   margin-bottom: 0.25rem;
 }
-.op-logo-img { height: 46px; width: auto; display: block; flex-shrink: 0; }
-
 .hero .lede {
   font-family: var(--serif);
   font-size: clamp(1.15rem, 2.1vw, 1.5rem);
@@ -251,26 +268,6 @@ section { position: relative; }
   object-fit: cover;
   display: block;
 }
-.hero-photo .badge {
-  position: absolute; left: -18px; bottom: 26px;
-  background: var(--card); border: 1px solid var(--line);
-  padding: 0.85rem 1.1rem; border-radius: 3px;
-  box-shadow: 0 14px 40px -18px rgba(60,40,20,0.4);
-  max-width: 220px;
-}
-.badge-now {
-  font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--ink-3); margin-bottom: 0.3rem;
-}
-.badge-role {
-  font-family: var(--sans); font-size: 0.84rem; font-weight: 600; color: var(--rust);
-  letter-spacing: 0.01em; margin-bottom: 0.2rem;
-}
-.badge-org {
-  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--ink-2);
-}
-
 /* stat strip */
 .stats {
   margin-top: clamp(36px, 5vw, 56px);
@@ -302,14 +299,14 @@ section { position: relative; }
    ============================================================ */
 .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(40px,6vw,90px); align-items: start; }
 .about-body p { font-size: 1.12rem; line-height: 1.7; color: var(--ink-2); margin: 0 0 1.3rem; max-width: 56ch; }
-.about-body p:first-child { font-family: var(--serif); font-size: clamp(1.4rem,2.6vw,1.9rem); line-height: 1.4; color: var(--ink); }
-.about-body p:first-child::first-letter { /* keep simple */ }
+.about-body p.about-lead { font-family: var(--serif); font-size: clamp(1.4rem,2.6vw,1.9rem); line-height: 1.4; color: var(--ink); }
 .about-body em { color: var(--rust); font-style: italic; }
+
 
 .focus-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); }
 .focus-item { padding: 1.3rem 0; border-bottom: 1px solid var(--line); }
-.focus-item h4 { font-size: 1.18rem; margin-bottom: 0.4rem; display: flex; align-items: baseline; gap: 0.6rem; }
-.focus-item h4 .n { font-family: var(--mono); font-size: 0.62rem; color: var(--rust); letter-spacing: 0.1em; }
+.focus-item h3 { font-size: 1.18rem; margin-bottom: 0.4rem; display: flex; align-items: baseline; gap: 0.6rem; }
+.focus-item h3 .n { font-family: var(--mono); font-size: 0.62rem; color: var(--rust); letter-spacing: 0.1em; }
 .focus-item p { font-size: 0.92rem; color: var(--ink-2); margin: 0; line-height: 1.5; }
 
 /* ============================================================
@@ -338,12 +335,19 @@ section { position: relative; }
 .pub:last-child { border-bottom: 1px solid var(--line); }
 .pub:hover { background: color-mix(in srgb, var(--card) 60%, transparent); }
 .pub .pidx { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-3); padding-top: 0.35rem; }
-.pub h4 { font-size: 1.18rem; line-height: 1.28; margin-bottom: 0.5rem; max-width: 62ch; transition: color .18s var(--ease); }
-.pub:hover h4 { color: var(--rust-2); }
+.pub h3 { font-size: 1.18rem; line-height: 1.28; margin-bottom: 0.5rem; max-width: 62ch; transition: color .18s var(--ease); }
+.pub:hover h3 { color: var(--rust-2); }
 .pub .meta { font-size: 0.9rem; color: var(--ink-2); }
 .pub .meta .venue { font-style: italic; font-family: var(--serif); }
 .pub .meta .authors { color: var(--ink-3); }
 .pub .meta b { color: var(--ink); font-weight: 600; font-style: normal; font-family: var(--sans); }
+.pub .meta .doi {
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--rust); border-bottom: 1px solid var(--rust-wash);
+  margin-left: 0.5rem; white-space: nowrap;
+  transition: border-color .18s var(--ease);
+}
+.pub .meta .doi:hover { border-bottom-color: var(--rust); }
 .pub .cites {
   text-align: right; padding-top: 0.2rem; min-width: 70px;
 }
@@ -436,7 +440,6 @@ section { position: relative; }
 .tl-body li { position: relative; padding-left: 1.3rem; color: var(--ink-2); font-size: 1rem; line-height: 1.5; }
 .tl-body li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; background: var(--rust); border-radius: 50%; }
 .tl-body li b { color: var(--ink); font-weight: 600; }
-.tl-item.founder .tl-org h3::after { content: "FOUNDER"; font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.14em; color: var(--rust); border: 1px solid var(--rust); padding: 0.15rem 0.35rem; border-radius: 2px; margin-left: 0.6rem; vertical-align: middle; }
 
 /* ============================================================
    MILESTONES (photo gallery)
@@ -451,7 +454,7 @@ section { position: relative; }
 .ms-card img { width: 100%; aspect-ratio: 16/10; border-bottom: 1px solid var(--line); object-fit: cover; display: block; }
 .ms-meta { padding: 1.3rem 1.4rem 1.5rem; }
 .ms-meta .mtag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rust); }
-.ms-meta h4 { font-size: 1.24rem; margin: 0.5rem 0 0.5rem; }
+.ms-meta h3 { font-size: 1.24rem; margin: 0.5rem 0 0.5rem; }
 .ms-meta p { font-size: 0.9rem; color: var(--ink-2); margin: 0; line-height: 1.5; }
 
 /* ============================================================
@@ -459,8 +462,8 @@ section { position: relative; }
    ============================================================ */
 .sk-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(40px,6vw,80px); align-items: start; }
 .sk-group { margin-bottom: 2rem; }
-.sk-group h4 { font-size: 1.12rem; margin-bottom: 0.9rem; display: flex; align-items: baseline; gap: 0.6rem; }
-.sk-group h4 .n { font-family: var(--mono); font-size: 0.6rem; color: var(--rust); letter-spacing: 0.1em; }
+.sk-group h3 { font-size: 1.12rem; margin-bottom: 0.9rem; display: flex; align-items: baseline; gap: 0.6rem; }
+.sk-group h3 .n { font-family: var(--mono); font-size: 0.6rem; color: var(--rust); letter-spacing: 0.1em; }
 
 .rec-block { margin-bottom: 2rem; }
 .rec-block > .mono { display: block; margin-bottom: 1rem; }
@@ -518,7 +521,19 @@ section { position: relative; }
   font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
 }
 .wr-meta { padding: 1.4rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; flex: 1; }
-.wr-card h4 { font-size: 1.28rem; line-height: 1.2; }
+.wr-card h2, .wr-card h3 { font-size: 1.28rem; line-height: 1.2; font-weight: 500; letter-spacing: -0.01em; }
+
+/* blog index page header */
+.listing-head { padding-top: 140px; padding-bottom: clamp(32px,5vw,52px); }
+.listing-head h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 400; letter-spacing: -0.025em;
+  margin: 1.4rem 0 1.1rem;
+}
+.listing-head h1 em { font-style: italic; color: var(--rust); }
+.listing-head .lede {
+  font-family: var(--serif); font-size: clamp(1.1rem,2vw,1.35rem); line-height: 1.5;
+  color: var(--ink-2); max-width: 48ch; margin: 0;
+}
 .wr-card p { font-size: 0.92rem; color: var(--ink-2); margin: 0; line-height: 1.55; flex: 1; }
 .wr-foot { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); padding-top: 0.4rem; border-top: 1px solid var(--line); }
 
@@ -530,6 +545,41 @@ section { position: relative; }
 .contact h2 em { font-style: italic; color: var(--rust); }
 .contact .clede { font-family: var(--serif); font-size: clamp(1.1rem,2vw,1.4rem); color: var(--ink-2); max-width: 44ch; margin: 0 auto 2.4rem; line-height: 1.5; }
 .contact-links { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- blog: author identity + profile links ---------- */
+.blog-identity {
+  margin-top: 2.4rem; padding-top: 1.8rem; border-top: 1px solid var(--line);
+  max-width: 720px;
+}
+.blog-identity .mono { display: block; margin-bottom: 0.9rem; }
+.blog-identity p { font-size: 0.96rem; color: var(--ink-2); line-height: 1.6; margin: 0 0 1.2rem; }
+.blog-identity .id-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.blog-identity .id-links a {
+  font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+  border: 1px solid var(--line); color: var(--ink-2);
+  padding: 0.5rem 0.8rem; border-radius: 2px;
+  transition: all .2s var(--ease);
+}
+.blog-identity .id-links a:hover { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.blog-identity .id-links a.primary { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.blog-identity .id-links a.primary:hover { background: var(--rust); border-color: var(--rust); }
+
+/* related reading */
+.blog-related { margin-top: 2.4rem; padding-top: 1.8rem; border-top: 1px solid var(--line); max-width: 720px; }
+.blog-related .mono { display: block; margin-bottom: 1rem; }
+.blog-related ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.blog-related li { border-bottom: 1px solid var(--line); }
+.blog-related li:first-child { border-top: 1px solid var(--line); }
+.blog-related a {
+  display: flex; align-items: baseline; gap: 0.8rem; padding: 0.9rem 0;
+  font-family: var(--serif); font-size: 1.05rem; color: var(--ink); line-height: 1.35;
+  transition: color .2s var(--ease);
+}
+.blog-related a:hover { color: var(--rust); }
+.blog-related a .rdate {
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-3); flex-shrink: 0; min-width: 68px;
+}
 
 .footer {
   border-top: 1px solid var(--line);
@@ -552,12 +602,6 @@ section { position: relative; }
 .op-brand-row {
   display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
   margin-bottom: 1.3rem;
-}
-.op-logo-mark {
-  width: 46px; height: 46px; border-radius: 8px;
-  background: var(--rust); color: var(--paper);
-  font-family: var(--serif); font-size: 1.6rem; font-weight: 600;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .op-name { font-size: 1.9rem; line-height: 1; margin-bottom: 0.15rem; }
 .op-tagline { font-family: var(--serif); font-style: italic; color: var(--rust); font-size: 0.9rem; }
@@ -587,11 +631,6 @@ section { position: relative; }
   aspect-ratio: 16/10; background: var(--paper); margin-bottom: 1.2rem;
 }
 .op-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.op-placeholder {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
-  background: repeating-linear-gradient(135deg, var(--paper-2) 0 11px, var(--card) 11px 22px);
-}
 .op-mission {
   border-left: 3px solid var(--rust);
   padding: 1rem 1.2rem;

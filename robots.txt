@@ -1,0 +1,65 @@
+# robots.txt — nasimnayan.github.io
+# Nasim Mahmud Nayan — Responsible AI & AI Governance
+#
+# Everything here is public and intended to be indexed. AI answer engines are
+# explicitly permitted: being quotable in AI-generated answers is a goal of this
+# site, not something to guard against.
+
+User-agent: *
+Allow: /
+
+# --- Search engines ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# --- AI answer engines / assistants ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# NOTE: update this URL when nasimmahmudnayan.com goes live.
+Sitemap: https://nasimnayan.github.io/sitemap.xml

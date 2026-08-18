@@ -98,10 +98,15 @@
   /* ---------- mobile menu ---------- */
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navlinks');
-  if (toggle) {
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  if (toggle && links) {
+    const setOpen = (open) => {
+      links.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    setOpen(false);
+    toggle.addEventListener('click', () => setOpen(!links.classList.contains('open')));
     links.querySelectorAll('a').forEach((a) =>
-      a.addEventListener('click', () => links.classList.remove('open'))
+      a.addEventListener('click', () => setOpen(false))
     );
   }
 
@@ -110,8 +115,12 @@
   const pubs = document.querySelectorAll('.pub');
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach((b) => b.classList.remove('active'));
+      filterBtns.forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       const f = btn.getAttribute('data-filter');
       pubs.forEach((p) => {
         const tags = p.getAttribute('data-tags') || '';
@@ -121,19 +130,4 @@
     });
   });
 
-  /* ---------- placeholder links (user will provide later) ---------- */
-  document.querySelectorAll('[data-link]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      if (a.getAttribute('href') === '#') {
-        e.preventDefault();
-        alert('Link coming soon — send me your ' + a.getAttribute('data-link') + ' URL and I\'ll wire it up.');
-      }
-    });
-  });
-  document.querySelectorAll('[data-cv]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Drop your CV PDF and I\'ll wire up this Download button.');
-    });
-  });
 })();
