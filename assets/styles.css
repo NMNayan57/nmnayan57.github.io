@@ -387,6 +387,37 @@ section { position: relative; }
 .rexp-role li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; border: 1px solid var(--rust); border-radius: 50%; }
 .rexp-role li b { color: var(--ink); font-weight: 600; }
 
+/* ---------- current research programme ---------- */
+.rprog {
+  border: 1px solid var(--line); border-radius: 5px; background: var(--paper);
+  padding: clamp(1.5rem, 3vw, 2.3rem);
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.rprog h3 {
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem); line-height: 1.1;
+  margin: 1.2rem 0 0.9rem; max-width: 30ch;
+}
+.rprog .rp-q {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(1.02rem, 2vw, 1.22rem); color: var(--ink-2);
+  line-height: 1.5; max-width: 56ch; margin: 0 0 1.8rem;
+}
+.rprog .rp-rail {
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--ink-3); margin-bottom: 1.1rem;
+}
+.rprog .rp-meta {
+  margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; align-items: baseline; justify-content: space-between;
+}
+.rprog .rp-status {
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--rust); white-space: nowrap;
+}
+/* a rung that is deliberately years out — no live pulse */
+.cw-status.later { color: var(--ink-3); }
+.cw-status.later::before { background: var(--ink-3); animation: none; box-shadow: none; }
+
 /* current work cards */
 .cw-head { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); margin: clamp(40px,5vw,64px) 0 1.4rem; }
 .cw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
@@ -428,6 +459,18 @@ section { position: relative; }
 .proj-metrics .pm .pmv { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); line-height: 1; }
 .proj-metrics .pm .pml { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-top: 0.35rem; }
 .proj-card .chip-row { margin-top: auto; }
+.proj-card h3 a { transition: color .18s var(--ease); }
+.proj-card:hover h3 a { color: var(--rust-2); }
+/* repo link row — mirrors the .wr-foot treatment */
+.proj-foot { margin-top: 1.1rem; padding-top: 0.9rem; border-top: 1px solid var(--line); }
+.proj-foot a {
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-2); display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: color .2s var(--ease);
+}
+.proj-foot a:hover { color: var(--rust); }
+.proj-foot .arrow { transition: transform .22s var(--ease); }
+.proj-foot a:hover .arrow { transform: translate(2px, -2px); }
 
 /* ============================================================
    INDUSTRY (timeline)

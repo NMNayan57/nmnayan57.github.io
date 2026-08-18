@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/styles.css?v=6" />
+<link rel="stylesheet" href="assets/styles.css?v=7" />
 <link rel="preload" as="image" href="photos/dp.png" fetchpriority="high" />
 
 <script type="application/ld+json">
@@ -93,6 +93,60 @@
       "about": { "@id": "https://nasimnayan.github.io/#person" },
       "author": { "@id": "https://nasimnayan.github.io/#person" },
       "publisher": { "@id": "https://nasimnayan.github.io/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://nasimnayan.github.io/#code-markfeed",
+      "name": "MarkFeed",
+      "description": "Offline document-to-Markdown converter for scanned PDFs, digital PDFs, Word and spreadsheet files, using open-source OCR and layout detection with no LLM or cloud APIs. Supports Bengali and English scanned books.",
+      "codeRepository": "https://github.com/nasimnayan/markfeed",
+      "programmingLanguage": "Python",
+      "author": { "@id": "https://nasimnayan.github.io/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://nasimnayan.github.io/#code-mtrush_medical",
+      "name": "M-TRUST",
+      "description": "Plug-in Python toolkit that detects and mitigates demographic, quality, annotation and amplification bias in clinical AI models through a one-line wrapper API.",
+      "codeRepository": "https://github.com/nasimnayan/mtrush_medical",
+      "programmingLanguage": "Python",
+      "author": { "@id": "https://nasimnayan.github.io/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://nasimnayan.github.io/#code-ExplainRAG_FC_AS",
+      "name": "ExplainRAG-FC-AS",
+      "description": "Citation-grounded clinical decision support combining thematic clustering, semantic retrieval and NLI fact-checking before generation, with source-level attribution.",
+      "codeRepository": "https://github.com/nasimnayan/ExplainRAG_FC_AS",
+      "programmingLanguage": "Python",
+      "author": { "@id": "https://nasimnayan.github.io/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://nasimnayan.github.io/#code-ECG-AI-Analysis",
+      "name": "Trustworthy ECG Platform",
+      "description": "Real-time and offline ECG analysis with fairness-aware training and uncertainty estimation, supporting live sensor streams and digitised paper ECGs.",
+      "codeRepository": "https://github.com/nasimnayan/ECG-AI-Analysis",
+      "programmingLanguage": "Python",
+      "author": { "@id": "https://nasimnayan.github.io/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://nasimnayan.github.io/#code-Xrays_Report_Analysis",
+      "name": "Multimodal Chest X-Ray Diagnosis",
+      "description": "Multimodal thoracic disease classification combining image features with clinical text, with cross-modal bias analysis and Grad-CAM explanations.",
+      "codeRepository": "https://github.com/nasimnayan/Xrays_Report_Analysis",
+      "programmingLanguage": "Python",
+      "author": { "@id": "https://nasimnayan.github.io/#person" }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://nasimnayan.github.io/#code-rag-website-generator",
+      "name": "RAG-Based Website Generator",
+      "description": "Retrieval-augmented website generator that assembles pre-built components instead of generating code from scratch, using pgvector semantic search and AST parsing.",
+      "codeRepository": "https://github.com/nasimnayan/rag-website-generator",
+      "programmingLanguage": "Python",
+      "author": { "@id": "https://nasimnayan.github.io/#person" }
     }
   ]
 }
@@ -378,8 +432,45 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="idx">04</span>
-      <h2>Research Experience</h2>
-      <span class="aside">3 labs · medical AI,<br />CV &amp; IoT systems</span>
+      <h2>Research</h2>
+      <span class="aside">Trust signals in frozen<br />models · 3 research labs</span>
+    </div>
+
+    <div class="rprog reveal">
+      <div class="eyebrow">Current research programme</div>
+      <h3>The Transferability of Trust Signals</h3>
+      <p class="rp-q">When and why does a model&rsquo;s trust signal carry from one task or language to another?</p>
+
+      <div class="rp-rail">The transfer ladder</div>
+      <div class="cw-grid">
+        <div class="cw-card">
+          <div class="cw-status">Paper 1 scope</div>
+          <h4>Same language, new layout</h4>
+          <p>Whether a trust signal established on one document layout still holds on a layout the model has never seen.</p>
+          <div class="target">Rung 01 · document &rarr; document</div>
+        </div>
+        <div class="cw-card">
+          <div class="cw-status">Paper 1 scope</div>
+          <h4>Across languages</h4>
+          <p>Whether that same signal survives the move into a lower-resource language, where far less of the model&rsquo;s training data lives.</p>
+          <div class="target">Rung 02 · cross-language</div>
+        </div>
+        <div class="cw-card">
+          <div class="cw-status later">Later work</div>
+          <h4>Across paradigms</h4>
+          <p>Document extraction to retrieval to agents. The hardest rung, and deliberately years out.</p>
+          <div class="target">Rung 03 · cross-paradigm</div>
+        </div>
+      </div>
+
+      <div class="rp-meta">
+        <div class="chip-row">
+          <span class="chip">Frozen models only</span>
+          <span class="chip">Validated in low-resource settings</span>
+          <span class="chip">Public benchmark as the output</span>
+        </div>
+        <span class="rp-status">Paper 1 &mdash; design locked, pre-registration in preparation</span>
+      </div>
     </div>
 
     <div class="rexp">
@@ -431,28 +522,6 @@
         </div>
       </div>
     </div>
-
-    <div class="cw-head reveal">Current Work — In Progress</div>
-    <div class="cw-grid">
-      <div class="cw-card reveal">
-        <div class="cw-status">In Progress</div>
-        <h4>M-TRUST Enhancement</h4>
-        <p>Advancing the medical-AI fairness toolkit with new bias-detection algorithms and broader healthcare dataset support.</p>
-        <div class="target">Targeting JMIR / IEEE TBME · FairnessML · PyTorch</div>
-      </div>
-      <div class="cw-card reveal d1">
-        <div class="cw-status">In Progress</div>
-        <h4>ECG Arrhythmia Detection</h4>
-        <p>Deep-learning model for automated ECG interpretation detecting 5 cardiac conditions with 96% accuracy.</p>
-        <div class="target">Biomedical Signal Processing · PyTorch · CNN</div>
-      </div>
-      <div class="cw-card reveal d2">
-        <div class="cw-status">In Progress</div>
-        <h4>Chest X-Ray Diagnosis System</h4>
-        <p>Vision-transformer multi-disease classification from radiographs with explainable AI and radiologist validation.</p>
-        <div class="target">Nature Scientific Reports · ViT · XAI</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -466,67 +535,74 @@
     </div>
 
     <div class="proj-grid">
+
       <article class="proj-card reveal">
-        <div class="proj-top"><h3>M-TRUST</h3><span class="ptag">Open Source</span></div>
-        <p class="pdesc">Plug-in Python toolkit to detect and mitigate demographic, quality, annotation, and amplification bias in clinical AI — one-line wrapper API with docs and reproducible examples.</p>
+        <div class="proj-top"><h3><a href="https://github.com/nasimnayan/markfeed" target="_blank" rel="noopener">MarkFeed</a></h3><span class="ptag">Offline Document AI</span></div>
+        <p class="pdesc">Converts scanned PDFs, digital PDFs, Word and spreadsheet files into clean Markdown &mdash; with extracted images, tables, per-page accuracy stats, and a verify view showing the original scan beside the converted text. Runs entirely offline on open-source OCR and layout detection, with first-class Bengali and English scanned-book support.</p>
+        <div class="proj-metrics">
+          <div class="pm"><div class="pmv">100%</div><div class="pml">Offline</div></div>
+          <div class="pm"><div class="pmv">0</div><div class="pml">LLM calls</div></div>
+          <div class="pm"><div class="pmv">BN + EN</div><div class="pml">Scripts</div></div>
+        </div>
+        <div class="chip-row"><span class="chip">FastAPI</span><span class="chip">Tesseract</span><span class="chip">PaddleOCR</span><span class="chip">img2table</span><span class="chip">PyMuPDF</span><span class="chip">Docker</span></div>
+        <div class="proj-foot"><a href="https://github.com/nasimnayan/markfeed" target="_blank" rel="noopener">View repository <span class="arrow">&#8599;</span></a></div>
+      </article>
+
+      <article class="proj-card reveal d1">
+        <div class="proj-top"><h3><a href="https://github.com/nasimnayan/mtrush_medical" target="_blank" rel="noopener">M-TRUST</a></h3><span class="ptag">Open Source</span></div>
+        <p class="pdesc">Plug-in Python toolkit to detect and mitigate demographic, quality, annotation, and amplification bias in clinical AI &mdash; one-line wrapper API with docs and reproducible examples.</p>
         <div class="proj-metrics">
           <div class="pm"><div class="pmv">30.8%</div><div class="pml">Bias reduced</div></div>
           <div class="pm"><div class="pmv">4-axis</div><div class="pml">Bias coverage</div></div>
         </div>
         <div class="chip-row"><span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">Scikit-learn</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span></div>
+        <div class="proj-foot"><a href="https://github.com/nasimnayan/mtrush_medical" target="_blank" rel="noopener">View repository <span class="arrow">&#8599;</span></a></div>
       </article>
 
-      <article class="proj-card reveal d1">
-        <div class="proj-top"><h3>ExplainRAG-FC-AS</h3><span class="ptag">Clinical RAG</span></div>
-        <p class="pdesc">Clinical decision support via RAG &amp; LLMs with thematic clustering and NLI fact-checking before generation — source-level attribution for traceable, transparent recommendations.</p>
+      <article class="proj-card reveal">
+        <div class="proj-top"><h3><a href="https://github.com/nasimnayan/ExplainRAG_FC_AS" target="_blank" rel="noopener">ExplainRAG-FC-AS</a></h3><span class="ptag">Clinical RAG</span></div>
+        <p class="pdesc">Clinical decision support via RAG &amp; LLMs with thematic clustering and NLI fact-checking before generation &mdash; source-level attribution for traceable, transparent recommendations.</p>
         <div class="proj-metrics">
           <div class="pm"><div class="pmv">&lt;10s</div><div class="pml">Query time</div></div>
           <div class="pm"><div class="pmv">90%</div><div class="pml">Clinician pref.</div></div>
           <div class="pm"><div class="pmv">0.85</div><div class="pml">Evidence conf.</div></div>
         </div>
         <div class="chip-row"><span class="chip">FAISS</span><span class="chip">K-Means</span><span class="chip">RoBERTa-MNLI</span><span class="chip">GPT-4</span><span class="chip">Streamlit</span></div>
+        <div class="proj-foot"><a href="https://github.com/nasimnayan/ExplainRAG_FC_AS" target="_blank" rel="noopener">View repository <span class="arrow">&#8599;</span></a></div>
       </article>
 
-      <article class="proj-card reveal">
-        <div class="proj-top"><h3>Trustworthy ECG Platform</h3><span class="ptag">Edge AI</span></div>
-        <p class="pdesc">Real-time and offline ECG analysis with fairness-aware training and uncertainty estimation — supports live sensor streams and digitised paper ECGs with natural-language explanations.</p>
+      <article class="proj-card reveal d1">
+        <div class="proj-top"><h3><a href="https://github.com/nasimnayan/ECG-AI-Analysis" target="_blank" rel="noopener">Trustworthy ECG Platform</a></h3><span class="ptag">Edge AI</span></div>
+        <p class="pdesc">Real-time and offline ECG analysis with fairness-aware training and uncertainty estimation &mdash; supports live sensor streams and digitised paper ECGs with natural-language explanations.</p>
         <div class="proj-metrics">
           <div class="pm"><div class="pmv">&gt;0.9</div><div class="pml">Fairness score</div></div>
           <div class="pm"><div class="pmv">95%</div><div class="pml">Accuracy</div></div>
           <div class="pm"><div class="pmv">&lt;100ms</div><div class="pml">Edge inference</div></div>
         </div>
         <div class="chip-row"><span class="chip">PyTorch</span><span class="chip">ResNet</span><span class="chip">SciPy</span><span class="chip">Streamlit</span></div>
-      </article>
-
-      <article class="proj-card reveal d1">
-        <div class="proj-top"><h3>Multimodal Chest X-Ray Diagnosis</h3><span class="ptag">Bias Analysis</span></div>
-        <p class="pdesc">Combined CheXNet image features with BioBERT clinical text to classify 14 thoracic diseases — diagnosed 4.3× cross-modal bias amplification and added Grad-CAM explanations for clinician trust.</p>
-        <div class="proj-metrics">
-          <div class="pm"><div class="pmv">14</div><div class="pml">Diseases</div></div>
-          <div class="pm"><div class="pmv">7.6→4.5%</div><div class="pml">Disparity cut</div></div>
-        </div>
-        <div class="chip-row"><span class="chip">TorchVision</span><span class="chip">BioBERT</span><span class="chip">Grad-CAM</span><span class="chip">Docker</span></div>
+        <div class="proj-foot"><a href="https://github.com/nasimnayan/ECG-AI-Analysis" target="_blank" rel="noopener">View repository <span class="arrow">&#8599;</span></a></div>
       </article>
 
       <article class="proj-card reveal">
-        <div class="proj-top"><h3>RAG-Based Website Generator</h3><span class="ptag">Cost-Efficient AI</span></div>
-        <p class="pdesc">AI website generator using RAG to assemble pre-built React components instead of generating code from scratch — with PostgreSQL + pgvector semantic search and tree-sitter AST parsing.</p>
+        <div class="proj-top"><h3><a href="https://github.com/nasimnayan/Xrays_Report_Analysis" target="_blank" rel="noopener">Multimodal Chest X-Ray Diagnosis</a></h3><span class="ptag">Bias Analysis</span></div>
+        <p class="pdesc">Combined CheXNet image features with BioBERT clinical text to classify 14 thoracic diseases &mdash; diagnosed 4.3&times; cross-modal bias amplification and added Grad-CAM explanations for clinician trust.</p>
+        <div class="proj-metrics">
+          <div class="pm"><div class="pmv">14</div><div class="pml">Diseases</div></div>
+          <div class="pm"><div class="pmv">7.6&rarr;4.5%</div><div class="pml">Disparity cut</div></div>
+        </div>
+        <div class="chip-row"><span class="chip">TorchVision</span><span class="chip">BioBERT</span><span class="chip">Grad-CAM</span><span class="chip">Docker</span></div>
+        <div class="proj-foot"><a href="https://github.com/nasimnayan/Xrays_Report_Analysis" target="_blank" rel="noopener">View repository <span class="arrow">&#8599;</span></a></div>
+      </article>
+
+      <article class="proj-card reveal d1">
+        <div class="proj-top"><h3><a href="https://github.com/nasimnayan/rag-website-generator" target="_blank" rel="noopener">RAG-Based Website Generator</a></h3><span class="ptag">Cost-Efficient AI</span></div>
+        <p class="pdesc">AI website generator using RAG to assemble pre-built React components instead of generating code from scratch &mdash; with PostgreSQL + pgvector semantic search and tree-sitter AST parsing.</p>
         <div class="proj-metrics">
           <div class="pm"><div class="pmv">92%</div><div class="pml">Token reduction</div></div>
           <div class="pm"><div class="pmv">94%</div><div class="pml">Cost savings</div></div>
         </div>
         <div class="chip-row"><span class="chip">FastAPI</span><span class="chip">pgvector</span><span class="chip">Next.js</span><span class="chip">GPT-4o</span><span class="chip">tree-sitter</span></div>
-      </article>
-
-      <article class="proj-card reveal d1">
-        <div class="proj-top"><h3>Bengali Literature RAG</h3><span class="ptag">Retrieval</span></div>
-        <p class="pdesc">RAG pipeline combining LaBSE embeddings with BM25 keyword search via Reciprocal Rank Fusion, with selective GPT-4o-Mini enhancement based on retrieval confidence.</p>
-        <div class="proj-metrics">
-          <div class="pm"><div class="pmv">95%</div><div class="pml">Hit@5</div></div>
-          <div class="pm"><div class="pmv">32ms</div><div class="pml">Response</div></div>
-          <div class="pm"><div class="pmv">60%</div><div class="pml">Cost cut</div></div>
-        </div>
-        <div class="chip-row"><span class="chip">LaBSE</span><span class="chip">BM25</span><span class="chip">GPT-4o Mini</span><span class="chip">FastAPI</span><span class="chip">Docker</span></div>
+        <div class="proj-foot"><a href="https://github.com/nasimnayan/rag-website-generator" target="_blank" rel="noopener">View repository <span class="arrow">&#8599;</span></a></div>
       </article>
     </div>
   </div>
