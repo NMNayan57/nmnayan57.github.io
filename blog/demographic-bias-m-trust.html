@@ -23,8 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/styles.css?v=5" />
-<link rel="stylesheet" href="blog.css?v=2" />
+<link rel="stylesheet" href="../assets/styles.css?v=6" />
+<link rel="stylesheet" href="blog.css?v=3" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -133,10 +133,32 @@
     <p>Clinical labels are assigned by humans — and human annotators bring their own biases. Studies have shown that pain is systematically under-assessed in certain patient populations. Diagnostic labels assigned by less experienced clinicians or under time pressure carry higher error rates. Annotation bias is particularly insidious because it is invisible in standard accuracy metrics: the model learns to reproduce human errors rather than to correct them.</p>
 
     <figure class="article-fig">
-      <div class="fig-img">
-        <div class="fig-placeholder">
-          <span>The Four Axes of Bias in M-TRUST</span>
-          <span style="font-size:0.75rem;opacity:.6;">Demographic · Annotation · Quality · Amplification</span>
+      <div class="fig-frame">
+        <div class="fig-head">
+          <span class="ft">Four axes of bias, four entry points</span>
+          <span class="fn">M-TRUST</span>
+        </div>
+        <div class="fig-pipeline">
+          <div class="fig-stage">
+            <div class="gt">Stage 01 &middot; Data collection</div>
+            <strong>Quality bias</strong>
+            <p>Artefacts introduced by how, where, and from whom the data was gathered.</p>
+          </div>
+          <div class="fig-stage">
+            <div class="gt">Stage 02 &middot; Labelling</div>
+            <strong>Annotation bias</strong>
+            <p>Differences in label quality between annotators, sites, or patient groups.</p>
+          </div>
+          <div class="fig-stage">
+            <div class="gt">Stage 03 &middot; Model training</div>
+            <strong>Amplification bias</strong>
+            <p>Disparity already present in the data, magnified by the training process itself.</p>
+          </div>
+          <div class="fig-stage">
+            <div class="gt">Stage 04 &middot; Subgroup outcomes</div>
+            <strong>Demographic bias</strong>
+            <p>Performance gaps across patient subgroups in the deployed model.</p>
+          </div>
         </div>
       </div>
       <figcaption>M-TRUST addresses bias at four distinct entry points in the clinical AI development pipeline.</figcaption>
@@ -229,6 +251,6 @@
   <span><span class="dot">&#9679;</span> Responsible AI &middot; Governance &middot; Research</span>
   <a href="../index.html" style="color:var(--ink-3)">Back to portfolio &rarr;</a>
 </footer>
-<script src="../assets/script.js?v=5"></script>
+<script src="../assets/script.js?v=6"></script>
 </body>
 </html>

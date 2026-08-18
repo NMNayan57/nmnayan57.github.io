@@ -69,6 +69,32 @@
     counters.forEach((c) => co.observe(c));
   }
 
+  /* ---------- scroll progress rail ----------
+     Built in JS so every page gets it without duplicating markup.
+     rAF-throttled and driven by transform, so it never triggers layout. */
+  (function () {
+    const rail = document.createElement('div');
+    rail.className = 'scroll-rail';
+    const bar = document.createElement('i');
+    rail.appendChild(bar);
+    document.body.insertBefore(rail, document.body.firstChild);
+
+    let queued = false;
+    function paint() {
+      queued = false;
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+      bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    }
+    function request() {
+      if (!queued) { queued = true; requestAnimationFrame(paint); }
+    }
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request, { passive: true });
+    paint();
+  })();
+
   /* ---------- nav: scrolled state + active section ---------- */
   const nav = document.getElementById('nav');
   const navLinks = Array.from(document.querySelectorAll('#navlinks a[href^="#"]'));

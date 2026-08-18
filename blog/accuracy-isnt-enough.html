@@ -23,8 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/styles.css?v=5" />
-<link rel="stylesheet" href="blog.css?v=2" />
+<link rel="stylesheet" href="../assets/styles.css?v=6" />
+<link rel="stylesheet" href="blog.css?v=3" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -119,10 +119,38 @@
     <p>In our work on diabetes diagnosis, we addressed this directly using <strong>SMOTE oversampling and Near-Miss undersampling</strong> to correct the class imbalance before training. The result was a model that performed substantially better on minority-class examples — the diabetic patients — even if the aggregate accuracy metric looked similar. The difference was clinically significant: patients who would have been missed were now correctly flagged for further evaluation.</p>
 
     <figure class="article-fig">
-      <div class="fig-img">
-        <div class="fig-placeholder">
-          <span>Class Imbalance: Before vs. After SMOTE</span>
-          <span style="font-size:0.75rem;opacity:.6;">Conceptual illustration of data distribution</span>
+      <div class="fig-frame">
+        <div class="fig-head">
+          <span class="ft">Class imbalance, before and after resampling</span>
+          <span class="fn">Illustrative &middot; 95 / 5 split</span>
+        </div>
+        <div class="fig-compare">
+          <div class="fig-panel">
+            <div class="pt">Before &mdash; as collected</div>
+            <div class="fig-bar">
+              <div class="bl"><span>Healthy</span><b>95%</b></div>
+              <div class="bt"><span class="bf" style="width:95%"></span></div>
+            </div>
+            <div class="fig-bar minor">
+              <div class="bl"><span>Diabetic</span><b>5%</b></div>
+              <div class="bt"><span class="bf" style="width:5%"></span></div>
+            </div>
+          </div>
+          <div class="fig-flip">
+            <span class="fa">&rarr;</span>
+            SMOTE +<br />Near-Miss
+          </div>
+          <div class="fig-panel">
+            <div class="pt">After &mdash; resampled</div>
+            <div class="fig-bar">
+              <div class="bl"><span>Healthy</span><b>50%</b></div>
+              <div class="bt"><span class="bf" style="width:50%"></span></div>
+            </div>
+            <div class="fig-bar minor">
+              <div class="bl"><span>Diabetic</span><b>50%</b></div>
+              <div class="bt"><span class="bf" style="width:50%"></span></div>
+            </div>
+          </div>
         </div>
       </div>
       <figcaption>Applying SMOTE oversampling to a diabetic patient dataset transforms a skewed distribution into one where the model can learn minority-class patterns effectively.</figcaption>
@@ -212,6 +240,6 @@
   <span><span class="dot">&#9679;</span> Responsible AI &middot; Governance &middot; Research</span>
   <a href="../index.html" style="color:var(--ink-3)">Back to portfolio &rarr;</a>
 </footer>
-<script src="../assets/script.js?v=5"></script>
+<script src="../assets/script.js?v=6"></script>
 </body>
 </html>

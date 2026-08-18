@@ -142,6 +142,20 @@ section { position: relative; }
   max-width: 230px;
 }
 
+/* ---------- scroll progress ----------
+   Injected by script.js so it exists on every page without markup edits.
+   A position indicator, not decoration: it stays active under
+   prefers-reduced-motion, it just never animates. */
+.scroll-rail {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px;
+  z-index: 60; pointer-events: none; background: transparent;
+}
+.scroll-rail i {
+  display: block; height: 100%; width: 100%;
+  background: var(--rust);
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+
 /* ---------- nav ---------- */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
@@ -520,6 +534,12 @@ section { position: relative; }
   display: flex; align-items: center; justify-content: center;
   font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
 }
+.wr-cover svg {
+  width: clamp(76px, 17vw, 108px); height: auto;
+  color: var(--ink-3); opacity: 0.8;
+  transition: color .25s var(--ease), opacity .25s var(--ease);
+}
+.wr-card:hover .wr-cover svg { color: var(--rust); opacity: 1; }
 .wr-meta { padding: 1.4rem 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; flex: 1; }
 .wr-card h2, .wr-card h3 { font-size: 1.28rem; line-height: 1.2; font-weight: 500; letter-spacing: -0.01em; }
 

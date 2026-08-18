@@ -23,8 +23,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../assets/styles.css?v=5" />
-<link rel="stylesheet" href="blog.css?v=2" />
+<link rel="stylesheet" href="../assets/styles.css?v=6" />
+<link rel="stylesheet" href="blog.css?v=3" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -133,10 +133,44 @@
     <p>We addressed this with a pre-retrieval clustering step. Before query time, we cluster the knowledge base using <strong>K-Means on sentence embeddings</strong>, grouping documents by thematic coherence. At query time, retrieval is performed within the most relevant cluster — ensuring that the documents surfaced are not just individually relevant but mutually coherent. This significantly improves the quality of the context window passed to the LLM, reducing the risk of the model synthesising across contradictory sources.</p>
 
     <figure class="article-fig">
-      <div class="fig-img">
-        <div class="fig-placeholder">
-          <span>ExplainRAG-FC-AS Architecture</span>
-          <span style="font-size:0.75rem;opacity:.6;">Thematic clustering → NLI fact-check → grounded generation</span>
+      <div class="fig-frame">
+        <div class="fig-head">
+          <span class="ft">ExplainRAG-FC-AS pipeline</span>
+          <span class="fn">No source, no result</span>
+        </div>
+        <div class="fig-flow">
+          <div class="fig-step">
+            <div class="sn">1</div>
+            <div class="sb"><strong>Clinical query</strong><span>Free-text question from a clinician</span></div>
+          </div>
+          <div class="fig-step">
+            <div class="sn">2</div>
+            <div class="sb"><strong>Thematic clustering</strong><span>K-Means groups the corpus by theme</span></div>
+          </div>
+          <div class="fig-step">
+            <div class="sn">3</div>
+            <div class="sb"><strong>Semantic retrieval</strong><span>FAISS search within the matched cluster</span></div>
+          </div>
+          <div class="fig-step">
+            <div class="sn">4</div>
+            <div class="sb"><strong>Fact-check before generation</strong><span>RoBERTa-MNLI tests entailment against the retrieved evidence</span></div>
+          </div>
+          <div class="fig-step">
+            <div class="sn">5</div>
+            <div class="sb">
+              <strong>The entailment result decides the outcome</strong>
+              <div class="fig-branch">
+                <div class="fig-outcome">
+                  <div class="ol">Evidence entailed</div>
+                  <strong>GPT-4 generates, and every claim carries source attribution</strong>
+                </div>
+                <div class="fig-outcome refuse">
+                  <div class="ol">Not entailed</div>
+                  <strong>No answer is returned</strong>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <figcaption>The ExplainRAG-FC-AS pipeline: FAISS semantic search within K-Means thematic clusters, NLI fact-checking via RoBERTa-MNLI, and GPT-4 grounded generation with source attribution.</figcaption>
@@ -223,6 +257,6 @@
   <span><span class="dot">&#9679;</span> Responsible AI &middot; Governance &middot; Research</span>
   <a href="../index.html" style="color:var(--ink-3)">Back to portfolio &rarr;</a>
 </footer>
-<script src="../assets/script.js?v=5"></script>
+<script src="../assets/script.js?v=6"></script>
 </body>
 </html>
