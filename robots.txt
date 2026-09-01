@@ -1,4 +1,4 @@
-# robots.txt — nasimnayan.github.io
+# robots.txt — nasimmahmudnayan.com
 # Nasim Mahmud Nayan — Responsible AI & AI Governance
 #
 # Everything here is public and intended to be indexed. AI answer engines are
@@ -61,5 +61,4 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# NOTE: update this URL when nasimmahmudnayan.com goes live.
-Sitemap: https://nasimnayan.github.io/sitemap.xml
+Sitemap: https://nasimmahmudnayan.com/sitemap.xml

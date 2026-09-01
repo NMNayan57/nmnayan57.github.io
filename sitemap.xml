@@ -1,50 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Sitemap for nasimnayan.github.io
-  NOTE: when nasimmahmudnayan.com goes live, replace every <loc> host here,
-  add canonical tags to the pages, and resubmit in Google Search Console.
+  Sitemap for nasimmahmudnayan.com
+  The custom domain is live; every <loc> uses it and each page carries a
+  matching rel=canonical. The github.io host 301-redirects here via CNAME.
+  Resubmit this sitemap in Google Search Console after a host change.
   The CV PDF is deliberately omitted pending a decision on whether it should
   remain publicly indexable.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://nasimnayan.github.io/</loc>
+    <loc>https://nasimmahmudnayan.com/</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://nasimnayan.github.io/blog/</loc>
+    <loc>https://nasimmahmudnayan.com/blog/</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://nasimnayan.github.io/blog/accuracy-isnt-enough.html</loc>
+    <loc>https://nasimmahmudnayan.com/blog/accuracy-isnt-enough.html</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://nasimnayan.github.io/blog/demographic-bias-m-trust.html</loc>
+    <loc>https://nasimmahmudnayan.com/blog/demographic-bias-m-trust.html</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://nasimnayan.github.io/blog/citation-first-clinical-rag.html</loc>
+    <loc>https://nasimmahmudnayan.com/blog/citation-first-clinical-rag.html</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://nasimnayan.github.io/blog/from-rural-bangladesh-to-ai.html</loc>
+    <loc>https://nasimmahmudnayan.com/blog/from-rural-bangladesh-to-ai.html</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>

@@ -8,7 +8,7 @@ programmes at population scale. Published researcher in fair and explainable mac
 (12 papers, 174 citations, h-index 6), currently working on trust and interpretability in
 large language models. Peer reviewer for two international journals.
 
-**Live site → https://nasimnayan.github.io**
+**Live site → https://nasimmahmudnayan.com**
 
 | | |
 |---|---|
